@@ -1,17 +1,10 @@
 import React from "react";
-import Tab from "./tab";
+import Tab, { TabInterface } from "./tab";
 
 const isMac = /Mac/.test(navigator.userAgent);
 
-export type ITab = {
-  uid: string;
-  title: string;
-  isActive: boolean;
-  hasActivity: boolean;
-};
-
 export type TabsProps = {
-  tabs: ITab[];
+  tabs: TabInterface[];
   borderColor: string;
   onChange: (uid: string) => void;
   onClose: (uid: string) => void;
@@ -45,7 +38,7 @@ export default class Tabs extends React.PureComponent<TabsProps> {
                 }`}
               >
                 {tabs.map((tab, i) => {
-                  const { uid, title, isActive, hasActivity } = tab;
+                  const { id: uid, title, isActive, hasActivity } = tab;
                   const props = {
                     ...this.props,
                     text: title === "" ? "Shell" : title,

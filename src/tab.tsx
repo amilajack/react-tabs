@@ -1,5 +1,12 @@
 import React from "react";
 
+export type TabInterface = {
+  id: string;
+  title: string;
+  isActive: boolean;
+  hasActivity: boolean;
+};
+
 export type TabProps = {
   borderColor: string;
   hasActivity: boolean;
