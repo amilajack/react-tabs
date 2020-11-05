@@ -23,7 +23,6 @@ export default class Tab extends React.PureComponent<TabProps> {
 
   handleMouseUp = (event: React.MouseEvent) => {
     const isMiddleClick = event.nativeEvent.which === 2;
-
     if (isMiddleClick) {
       this.props.onClose();
     }

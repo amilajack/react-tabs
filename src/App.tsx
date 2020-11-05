@@ -66,7 +66,7 @@ export default function App() {
   return (
     <div className="App">
       <Tabs {...props} />
-      <a>{text}</a>
+      <span>{text}</span>
       <button onClick={newTab}>new tab</button>
     </div>
   );

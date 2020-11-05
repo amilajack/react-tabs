@@ -1,5 +1,4 @@
 import React from "react";
-import { decorate, getTabProps } from "../utils/plugins";
 import Tab from "./tab";
 
 const isMac = /Mac/.test(navigator.userAgent);
