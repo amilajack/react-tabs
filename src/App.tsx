@@ -6,7 +6,7 @@ export default function App() {
   const [text, setText] = useState("");
   const [tabs, setTabs] = useState([
     {
-      uid: "1",
+      id: "1",
       title: "Untitled",
       isActive: true,
       hasActivity: true
@@ -15,14 +15,14 @@ export default function App() {
   const props = {
     tabs,
     borderColor: "black",
-    onChange: (uid: string) => {
+    onChange: (id: string) => {
       setTabs(
         tabs.map((tab) => ({
           ...tab,
-          isActive: tab.uid === uid
+          isActive: tab.id === id
         }))
       );
-      switch (uid) {
+      switch (id) {
         case "1": {
           setText("f");
           break;
@@ -33,10 +33,10 @@ export default function App() {
         }
       }
     },
-    onClose: (uid: string) => {
-      let closedIdx = tabs.findIndex((tab, i) => tab.uid === uid);
+    onClose: (id: string) => {
+      let closedIdx = tabs.findIndex((tab, i) => tab.id === id);
       const newTabs = tabs
-        .filter((tab) => tab.uid !== uid)
+        .filter((tab) => tab.id !== id)
         .map((tab, idx, items) => {
           // clamp new tab index between 0 and tabs.length - 1
           let newActiveTabIdx = Math.max(
@@ -56,7 +56,7 @@ export default function App() {
     setTabs([
       ...tabs.map((tab) => ({ ...tab, isActive: false })),
       {
-        uid: String(Math.floor(Math.random() * 10000)),
+        id: String(Math.floor(Math.random() * 10000)),
         title: "tab",
         isActive: true,
         hasActivity: true
